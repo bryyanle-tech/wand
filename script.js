@@ -141,3 +141,17 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }, 120 * i);
   });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+    });
+  }
+
+  // Mantém o tema salvo
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+  }
+});
